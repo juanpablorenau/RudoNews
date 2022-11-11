@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.rudonews.modules.register.RegisterViewModel" />
+
+        <variable
+            name="activity"
+            type="com.example.rudonews.modules.register.RegisterActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".modules.register.RegisterActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="@dimen/toolbar_elevation"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/Theme.RudoNews"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/register"
+            app:titleTextColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_departments"
+            onClickWithDebounce="@{() -> activity.goToDepartments()}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:drawablePadding="@dimen/normal_padding"
+            android:padding="@dimen/fab_padding"
+            android:background="?selectableItemBackground"
+            android:text="@string/departments"
+            android:textColor="@color/fuchsia"
+            android:textSize="@dimen/normal_text_size"
+            app:drawableRightCompat="@drawable/ic_arrow_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:enabled="false"
+            app:helperTextTextColor="@color/red"
+            app:errorIconDrawable="@null"
+            app:layout_constraintTop_toBottomOf="@+id/text_departments">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="@string/name_and_lastname"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="@={viewModel.username}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:enabled="false"
+            app:helperTextTextColor="@color/red"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            app:errorIconDrawable="@null"
+            app:layout_constraintTop_toBottomOf="@+id/text_layout_username">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_email"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:text="@={viewModel.email}"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:enabled="false"
+            app:helperTextTextColor="@color/red"
+            app:passwordToggleEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintTop_toBottomOf="@+id/text_layout_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="@={viewModel.password}"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            app:layout_constraintTop_toBottomOf="@+id/text_layout_password">
+
+            <TextView
+                android:id="@+id/text_capital_letters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/small_text_size"
+                android:background="@drawable/rounded_text_view"
+                android:padding="@dimen/small_padding"
+                android:gravity="center"
+                android:text="@string/capital_letters"
+                android:textColor="@color/gray"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.1" />
+
+            <TextView
+                android:id="@+id/text_lowercase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/small_text_size"
+                android:background="@drawable/rounded_text_view"
+                android:padding="@dimen/small_padding"
+                android:text="@string/lowercase"
+                android:gravity="center"
+                android:textColor="@color/gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_second"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            app:layout_constraintTop_toBottomOf="@+id/layout_first">
+
+            <TextView
+                android:id="@+id/text_eight_characters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/small_text_size"
+                android:background="@drawable/rounded_text_view"
+                android:padding="@dimen/small_padding"
+                android:gravity="center"
+                android:text="@string/eigtth_characters"
+                android:textColor="@color/gray"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.1" />
+
+            <TextView
+                android:id="@+id/text_numbers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/small_text_size"
+                android:background="@drawable/rounded_text_view"
+                android:padding="@dimen/small_padding"
+                android:text="@string/numbers"
+                android:gravity="center"
+                android:textColor="@color/gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            app:layout_constraintTop_toBottomOf="@+id/layout_second">
+
+            <TextView
+                android:id="@+id/text_special_character"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/small_text_size"
+                android:background="@drawable/rounded_text_view"
+                android:padding="@dimen/small_padding"
+                android:gravity="center"
+                android:text="@string/special_character"
+                android:textColor="@color/gray"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.1" />
+
+        </LinearLayout>
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_text_size"
+            android:enabled="false"
+            android:buttonTint="@color/fuchsia"
+            app:layout_constraintBottom_toTopOf="@+id/continue_button"
+            app:layout_constraintStart_toStartOf="@+id/continue_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continue_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginVertical="@dimen/fab_margin"
+            android:text="@string/continue_button"
+            android:enabled="false"
+            android:onClick="@{() -> viewModel.checkRegister()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

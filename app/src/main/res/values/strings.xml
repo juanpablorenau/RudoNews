@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Rudo News</string>
+
+    <string name="register">Registro</string>
+    <string name="departments_toolbar">Departamentos</string>
+    <string name="forgotten_password_toolbar">Contraseña olvidada</string>
+    <string name="change_password_toolbar">Cambiar contraseña</string>
+    <string name="favorites_toolbar">Favoritos</string>
+    <string name="login_toolbar">Iniciar Sesión</string>
+    <string name="profile_toolbar">Perfil</string>
+
+    <string name="departments">Departamento/s</string>
+    <string name="name_and_lastname">Nombre y Apellidos*</string>
+    <string name="email">Mail*</string>
+    <string name="password">Contraseña*</string>
+    <string name="capital_letters">MAYÚSCULA</string>
+    <string name="lowercase">minúscula</string>
+    <string name="eigtth_characters">8 CARÁCTERES</string>
+    <string name="numbers">NÚMEROS</string>
+    <string name="special_character">CARÁCTER ESPECIAL</string>
+    <string name="confirm_terms_part_1">Sí, he leido y acepto las</string>
+    <string name="confirm_terms_part_2">políticas de privacidad</string>
+    <string name="confirm_terms">%1$s %2$s</string>
+    <string name="continue_button">Continuar</string>
+
+    <string name="error_empty">El campo no puede estar vacío</string>
+    <string name="error_username">El nombre debe contener al menos 2 caracteres</string>
+    <string name="error_email">El formato del email es incorrecto</string>
+    <string name="error_password_length">La constraseña debe contener al menos 8 caracteres</string>
+    <string name="error_password_upper_case">La constraseña debe contener al menos una mayúsucula</string>
+    <string name="error_password_lower_case">La constraseña debe contener al menos una minúscula</string>
+    <string name="error_password_number">La constraseña debe contener al menos un número</string>
+
+    <string name="accept_button">Aceptar</string>
+    <string name="register_button">Registro</string>
+    <string name="departments_key">departments_key</string>
+    <string name="ok">Aceptar</string>
+    <string name="departments_dialog">Debe seleccionar al menos un departamento</string>
+
+    <string name="login">Iniciar Sesión</string>
+    <string name="forgotten_password">¿Has olvidado la contraseña?</string>
+    <string name="continue_as_guest">Continuar como invitado</string>
+    <string name="login_error_dialog">El mail o la contraseña son erróneos, vuelve a intentarlo.</string>
+
+    <string name="forgotten_password_text">Introduce tu mail y recibirás un correo para restablecer tu contraseña.</string>
+    <string name="forgotten_password_button">Reestablecer contraseña</string>
+    <string name="forgotten_password_success_dialog">Vas a recibir un mail de recuperación, revisa tu bandeja de entrada y en Spam.</string>
+    <string name="forgotten_password_fail_dialog">No hay ninguna cuenta registrada con este mail, revisa que has introducido el mail correctamente.</string>
+
+    <string name="change_password_button">Guardar nueva contraseña</string>
+    <string name="current_password">Contraseña actual*</string>
+    <string name="new_password">Contraseña nueva*</string>
+    <string name="repeat_new_password">Repetir contraseña nueva*</string>
+    <string name="success_change_password">La contraseña se ha cambiado correctamente.</string>
+    <string name="fail_change_password">Ha habido un error, revisa que ambas contraseñas coinciden.</string>
+
+    <string name="menu_news">Noticias</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="menu_favorites">Favoritos</string>
+
+    <string name="leisure">Ocio</string>
+    <string name="news">Noticias</string>
+    <string name="search_view_text">Buscar...</string>
+    <string name="apply_filters">Aplicar filtros</string>
+
+    <string name="error_news_dialog">Error en la carga de la base de datos, vuelvfe a intentarlo más adelante.</string>
+    <string name="intent_news">INTENT_NEWS</string>
+
+    <string name="write_a_comment">Escribe un comentario</string>
+    <string name="comments">Comentarios</string>
+
+    <string name="comment_length">%1$d / %2$d</string>
+    <string name="no_news">No hay ningún artículo guardado, desde noticias podrás guardar algunos.</string>
+    <string name="goToNews">Ir a noticias</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="faq">FAQ</string>
+    <string name="terms_and_conditions">Términos y condiciones</string>
+    <string name="privacy_policies">Políticas de privacidad</string>
+    <string name="log_out">Cerrar sesión</string>
+    <string name="edit_profile_toolbar">Editar perfil</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="name">Nombre*</string>
+    <string name="save_changes">Guardar cambios</string>
+    <string name="faq_toolbar">FAQ</string>
+    <string name="privacy_policies_toolbar">Política de privacidad</string>
+    <string name="terms_and_conditions_toolbar">Términos y condiciones</string>
+    <string name="guest_dialog">Para acceder a esta pantalla debes registrarte o iniciar sesión desde inicio.</string>
+    <string name="go_to_beginning">ir a inicio</string>
+    <string name="close">Cerrar</string>
+    <string name="intent_edit_profile">INTENT_EDIT_PROFILE</string>
+    <string name="login_format_error_dialog">El formato de los campos es incorrecto</string>
+    <string name="error_connection">No hay conexión a internet</string>
+    <string name="save_changes_dialog">Los cambios se han guardado con éxito.</string>
+    <string name="different_passwords">Las contraseñas no coinciden</string>
+    <string name="incorrect_format">La contraseña no tiene el formato adecuado. Tiene que tener una mayúscula, una minúscula, un número y una longitud mínima de 8 carácteres.</string>
+    <string name="server_error_dialog">Ha ocurrido un problema con el servidor. Vuelva a intentarlo más tarde.</string>
+    <string name="no_server_response">No se ha obtenido respuesta del servidor</string>
+    <string name="click_on_radio_button">Debe aceptar los términos para poder registrarse</string>
+
+</resources>

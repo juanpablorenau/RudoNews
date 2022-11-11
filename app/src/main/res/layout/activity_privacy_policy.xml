@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.rudonews.modules.menu.profile.privacy_policy.PrivacyPolicyViewModel" />
+        <variable
+            name="activity"
+            type="com.example.rudonews.modules.menu.profile.privacy_policy.PrivacyPolicyActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/toolbar_elevation"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:background="@color/white"
+            android:theme="@style/Theme.RudoNews"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/privacy_policies_toolbar"
+            app:titleTextColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:textStyle="bold"
+            android:text="@={viewModel.title}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/textView_contents"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.contents}"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title"
+            tools:layout_editor_absoluteX="177dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

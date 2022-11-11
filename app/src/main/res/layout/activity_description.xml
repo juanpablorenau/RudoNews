@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="news"
+            type="com.example.rudonews.data.model.News" />
+        <variable
+            name="viewModel"
+            type="com.example.rudonews.modules.menu.news.DescriptionViewModel" />
+
+        <variable
+            name="activity"
+            type="com.example.rudonews.modules.menu.news.DescriptionActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".modules.menu.news.DescriptionActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:minHeight="?attr/actionBarSize"
+            android:elevation="@dimen/toolbar_elevation"
+            android:theme="@style/Theme.RudoNews"
+            app:menu="@menu/toolbar_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/black"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_layout_comment"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_description"
+            android:layout_marginBottom="@dimen/fab_margin">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/news_image_size"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:id="@+id/text_title"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="@dimen/fab_margin"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:text="@={news.subtitle}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/small_text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/text_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_description" />
+
+                <TextView
+                    android:id="@+id/text_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_text_size"
+                    android:layout_marginEnd="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_description" />
+
+                <TextView
+                    android:id="@+id/text_description"
+                    android:layout_marginHorizontal="@dimen/fab_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={news.short_description}"
+                    android:textSize="@dimen/small_text_size"
+                    android:layout_marginEnd="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
+                <ProgressBar
+                    android:id="@+id/progress_top_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_description" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bottom_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            app:errorIconDrawable="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_send"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray"
+                android:hint="@string/write_a_comment"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:text="@={viewModel.comment}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/image_send"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:padding="@dimen/fab_padding"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:onClick="@{() -> activity.createComment()}"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/text_layout_comment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_layout_comment"
+            app:srcCompat="@drawable/ic_send" />
+
+        <TextView
+            android:id="@+id/text_comment_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_layout_comment" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

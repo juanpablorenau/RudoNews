@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.rudonews.modules.login.LoginViewModel" />
+
+        <variable
+            name="activity"
+            type="com.example.rudonews.modules.login.LoginActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".modules.login.LoginActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/toolbar_elevation"
+            android:background="@color/white"
+            app:title="@string/login_toolbar"
+            app:titleTextColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/imageView_logo"
+            android:layout_width="@dimen/logo_size"
+            android:layout_height="@dimen/logo_size"
+            android:layout_marginTop="@dimen/big_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_login"
+            app:srcCompat="@drawable/icon"
+            android:contentDescription="@null" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin"
+            app:helperTextTextColor="@color/red"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            app:errorIconDrawable="@null"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_logo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_email"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:text="@={viewModel.email}"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_layout_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            app:helperTextTextColor="@color/red"
+            app:passwordToggleEnabled="true"
+            app:errorIconDrawable="@null"
+            app:layout_constraintTop_toBottomOf="@+id/text_layout_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="@={viewModel.password}"
+                android:hint="@string/password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/text_forgotten_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgotten_password"
+            android:textColor="@color/fuchsia"
+            android:padding="@dimen/small_padding"
+            android:clickable="true"
+            android:focusable="true"
+            android:textStyle="bold"
+            onClickWithDebounce="@{() -> activity.goToForgottenPasswordActivity()}"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:background="?selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_layout_password" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_marginTop="@dimen/big_margin"
+            android:enabled="false"
+            android:alpha="0.2"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            android:onClick="@{() -> viewModel.logIn()}"
+            app:strokeColor="@color/fuchsia"
+            app:strokeWidth="@dimen/stroke_width"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/fuchsia"
+            app:cornerRadius="@dimen/corner_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_forgotten_password" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_button"
+            android:textColor="@color/fuchsia"
+            android:layout_marginTop="@dimen/small_margin"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            app:strokeColor="@color/fuchsia"
+            app:strokeWidth="@dimen/stroke_width"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="@dimen/corner_radius"
+            onClickWithDebounce="@{() -> activity.goToRegisterActivity()}"
+            android:layout_marginHorizontal="@dimen/fab_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_login" />
+
+        <TextView
+            android:id="@+id/textView_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/continue_as_guest"
+            android:textColor="@color/fuchsia"
+            android:clickable="true"
+            onClickWithDebounce="@{() -> activity.goToMenuActivity()}"
+            android:focusable="true"
+            android:padding="@dimen/small_padding"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:background="?selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
